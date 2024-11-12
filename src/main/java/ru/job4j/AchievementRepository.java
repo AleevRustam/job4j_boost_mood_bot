@@ -1,4 +1,4 @@
-package ru.job4j.repositories;
+package ru.job4j;
 
 public class AchievementRepository {
 }

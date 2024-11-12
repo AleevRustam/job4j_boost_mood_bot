@@ -1,4 +1,4 @@
-package ru.job4j.telegram;
+package ru.job4j;
 
 public class TelegramBotService {
 }
