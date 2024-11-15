@@ -1,7 +1,6 @@
 package ru.job4j.repository;
 
 import ru.job4j.model.User;
-
 import java.util.List;
 
 public interface UserRepository {
