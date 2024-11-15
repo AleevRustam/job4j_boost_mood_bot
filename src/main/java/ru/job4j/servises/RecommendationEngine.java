@@ -1,13 +1,15 @@
 package ru.job4j.servises;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.stereotype.Service;
+import ru.job4j.content.Content;
+import ru.job4j.content.ContentProvider;
+
+import java.util.List;
+import java.util.Random;
 
 @Service
-public class RecommendationEngine implements BeanNameAware {
-    private String beanName;
+public class RecommendationEngine {
+    /*private String beanName;
 
     @PostConstruct
     public void init() {
@@ -23,5 +25,17 @@ public class RecommendationEngine implements BeanNameAware {
     public void setBeanName(String name) {
         this.beanName = name;
         System.out.println("Bean name from BeanNameAware: " + beanName);
+    }*/
+
+    private final List<ContentProvider> contents;
+    private static final Random RND = new Random(System.currentTimeMillis());
+
+    public RecommendationEngine(List<ContentProvider> contents) {
+        this.contents = contents;
+    }
+
+    public Content recommendFor(Long chatId, Long moodId) {
+        var index = RND.nextInt(0, contents.size());
+        return contents.get(index).byMood(chatId, moodId);
     }
 }
