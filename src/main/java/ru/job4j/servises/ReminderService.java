@@ -3,7 +3,7 @@ package ru.job4j.servises;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import ru.job4j.repository.UserFakeRepository;
+import ru.job4j.repository.UserRepository;
 
 @Service
 public class ReminderService {
@@ -26,9 +26,9 @@ public class ReminderService {
     }*/
 
     private final TgRemoteService tgRemoteService;
-    private final UserFakeRepository userRepository;
+    private final UserRepository userRepository;
 
-    public ReminderService(TgRemoteService tgRemoteService, UserFakeRepository userRepository) {
+    public ReminderService(TgRemoteService tgRemoteService, UserRepository userRepository) {
         this.tgRemoteService = tgRemoteService;
         this.userRepository = userRepository;
     }

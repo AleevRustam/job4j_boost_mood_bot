@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.job4j.model.User;
-import ru.job4j.repository.UserFakeRepository;
+import ru.job4j.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ public class TgRemoteService extends TelegramLongPollingBot {
 
     private static final Map<String, String> MOOD_RESP = new HashMap<>();
 
-    private final UserFakeRepository userRepository;
+    private final UserRepository userRepository;
 
     static {
         MOOD_RESP.put("lost_sock", "Носки — это коварные создания. Но не волнуйся, второй обязательно найдётся!");
@@ -36,7 +36,7 @@ public class TgRemoteService extends TelegramLongPollingBot {
 
     public TgRemoteService(@Value("${telegram.bot.name}") String botName,
                            @Value("${telegram.bot.token}") String botToken,
-                           UserFakeRepository userRepository) {
+                           UserRepository userRepository) {
         this.botName = botName;
         this.botToken = botToken;
         this.userRepository = userRepository;
