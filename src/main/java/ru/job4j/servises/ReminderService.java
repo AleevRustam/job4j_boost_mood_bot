@@ -7,28 +7,11 @@ import ru.job4j.repository.UserRepository;
 
 @Service
 public class ReminderService {
-   /* private String beanName;
 
-    @PostConstruct
-    public void init() {
-        System.out.println("Bean is going through @PostConstruct init.");
-    }
-
-    @PreDestroy
-    public void destroy() {
-        System.out.println("Bean will be destroyed via @PreDestroy.");
-    }
-
-    @Override
-    public void setBeanName(String name) {
-        this.beanName = name;
-        System.out.println("Bean name from BeanNameAware: " + beanName);
-    }*/
-
-    private final TgRemoteService tgRemoteService;
+    private final TelegramBotService tgRemoteService;
     private final UserRepository userRepository;
 
-    public ReminderService(TgRemoteService tgRemoteService, UserRepository userRepository) {
+    public ReminderService(TelegramBotService tgRemoteService, UserRepository userRepository) {
         this.tgRemoteService = tgRemoteService;
         this.userRepository = userRepository;
     }
@@ -39,7 +22,7 @@ public class ReminderService {
             var message = new SendMessage();
             message.setChatId(user.getChatId());
             message.setText("Ping");
-            tgRemoteService.send(message);
+           /* tgRemoteService.sent(message);*/
         }
     }
 }
