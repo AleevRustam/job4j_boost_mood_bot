@@ -10,7 +10,6 @@ import java.util.List;
 
 @Component
 public class TgUI {
-
     private final MoodRepository moodRepository;
 
     public TgUI(MoodRepository moodRepository) {
